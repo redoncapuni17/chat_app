@@ -116,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 regEx: r".{8,}",
                 hintText: "Password",
-                obscureText: true),
+                obscureText: false),
           ],
         ),
       ),
@@ -130,9 +130,8 @@ class _LoginPageState extends State<LoginPage> {
       width: _deviceWidth * 0.65,
       onPressed: () {
         if (_loginFormKey.currentState!.validate()) {
-          print("Email: $_email, Password: $_password");
           _loginFormKey.currentState!.save();
-          print("Email: $_email, Password: $_password");
+          _auth.loginUsingEmailAndPassword(_email!, _password!);
         }
       },
     );

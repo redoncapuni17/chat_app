@@ -12,7 +12,7 @@ class DatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   DatabaseService() {}
-
+/*
   Future<void> createUser(
       String _uid, String _email, String _name, String _imageURL) async {
     try {
@@ -28,11 +28,12 @@ class DatabaseService {
       print(e);
     }
   }
-
+*/
   Future<DocumentSnapshot> getUser(String _uid) {
     return _db.collection(USER_COLLECTION).doc(_uid).get();
   }
 
+/*
   Future<QuerySnapshot> getUsers({String? name}) {
     Query _query = _db.collection(USER_COLLECTION);
     if (name != null) {
@@ -42,7 +43,7 @@ class DatabaseService {
     }
     return _query.get();
   }
-
+*/
 /*
   Stream<QuerySnapshot> getChatsForUser(String _uid) {
     return _db
@@ -90,7 +91,7 @@ class DatabaseService {
       print(e);
     }
   }
-
+/*
   Future<void> deleteChat(String _chatID) async {
     try {
       await _db.collection(CHAT_COLLECTION).doc(_chatID).delete();
@@ -98,6 +99,7 @@ class DatabaseService {
       print(e);
     }
   }
+  */
 /*
   Future<DocumentReference?> createChat(Map<String, dynamic> _data) async {
     try {

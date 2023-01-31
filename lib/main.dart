@@ -14,7 +14,7 @@ import './providers/authentication_provider.dart';
 import './pages/splash_page.dart';
 import './pages/login_page.dart';
 //import './pages/register_page.dart';
-//import './pages/home_page.dart';
+import './pages/home_page.dart';
 
 void main() {
   runApp(
@@ -41,7 +41,7 @@ class MainApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-        title: 'Chatify',
+        title: 'Chat App',
         theme: ThemeData(
           backgroundColor: Color.fromRGBO(36, 35, 49, 1.0),
           scaffoldBackgroundColor: Color.fromRGBO(36, 35, 49, 1.0),
@@ -53,9 +53,8 @@ class MainApp extends StatelessWidget {
         initialRoute: '/login',
         routes: {
           '/login': (BuildContext _context) => LoginPage(),
-          /*'/register': (BuildContext _context) => RegisterPage(),
+          //'/register': (BuildContext _context) => RegisterPage(),
           '/home': (BuildContext _context) => HomePage(),
-        },*/
         },
       ),
     );
