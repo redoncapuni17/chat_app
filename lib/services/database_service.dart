@@ -12,7 +12,7 @@ class DatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   DatabaseService() {}
-/*
+
   Future<void> createUser(
       String _uid, String _email, String _name, String _imageURL) async {
     try {
@@ -28,7 +28,7 @@ class DatabaseService {
       print(e);
     }
   }
-*/
+
   Future<DocumentSnapshot> getUser(String _uid) {
     return _db.collection(USER_COLLECTION).doc(_uid).get();
   }

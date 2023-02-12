@@ -11,7 +11,7 @@ class CloudStorageService {
   final FirebaseStorage _storage = FirebaseStorage.instance;
 
   CloudStorageService() {}
-/*
+
   Future<String?> saveUserImageToStorage(
       String _uid, PlatformFile _file) async {
     try {
@@ -42,5 +42,5 @@ class CloudStorageService {
     } catch (e) {
       print(e);
     }
-  }*/
+  }
 }
