@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:get_it/get_it.dart';
 
 //Widgets
-import '../widget/custom_input_fields.dart';
-import '../widget/rounded_button.dart';
+import '../widgets/custom_input_fields.dart';
+import '../widgets/rounded_button.dart';
 
 //Providers
 import '../providers/authentication_provider.dart';
@@ -78,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
     return Container(
       height: _deviceHeight * 0.10,
       child: Text(
-        'Chatify',
+        'Chat App',
         style: TextStyle(
           color: Colors.white,
           fontSize: 40,

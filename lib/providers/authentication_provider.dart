@@ -15,7 +15,6 @@ class AuthenticationProvider extends ChangeNotifier {
   late final FirebaseAuth _auth;
   late final NavigationService _navigationService;
   late final DatabaseService _databaseService;
-
   late ChatUser user;
 
   AuthenticationProvider() {

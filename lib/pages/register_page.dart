@@ -1,5 +1,5 @@
 //Packages
-import 'package:chat_app/widget/rounded_image.dart';
+import 'package:chat_app/widgets/rounded_image.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:get_it/get_it.dart';
@@ -12,9 +12,9 @@ import '../services/cloud_storage_service.dart';
 import '../services/navigation_service.dart';
 
 //Widgets
-import '../widget/custom_input_fields.dart';
-import '../widget/rounded_button.dart';
-import '../widget/rounded_image.dart';
+import '../widgets/custom_input_fields.dart';
+import '../widgets/rounded_button.dart';
+import '../widgets/rounded_image.dart';
 
 //Providers
 import '../providers/authentication_provider.dart';
