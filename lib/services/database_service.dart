@@ -44,7 +44,7 @@ class DatabaseService {
     return _query.get();
   }
 */
-/*
+
   Stream<QuerySnapshot> getChatsForUser(String _uid) {
     return _db
         .collection(CHAT_COLLECTION)
@@ -62,6 +62,7 @@ class DatabaseService {
         .get();
   }
 
+/*
   Stream<QuerySnapshot> streamMessagesForChat(String _chatID) {
     return _db
         .collection(CHAT_COLLECTION)
