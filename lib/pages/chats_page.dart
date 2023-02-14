@@ -1,5 +1,5 @@
 //Package
-
+import 'package:chat_app/models/chat_message.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:get_it/get_it.dart';
@@ -9,6 +9,11 @@ import '../providers/chats_page_provider.dart';
 //Widgets
 import '../widgets/top_bar.dart';
 import '../widgets/custom_list_view_tiles.dart';
+
+//Models
+import '../models/chat.dart';
+import '../models/chat_user.dart';
+import '../models/chat_message.dart';
 
 class ChatsPage extends StatefulWidget {
   @override
@@ -67,7 +72,7 @@ class _ChatsPageState extends State<ChatsPage> {
                   },
                 ),
               ),
-              _chatTile(),
+              _chatsList(),
             ],
           ),
         );
@@ -76,20 +81,56 @@ class _ChatsPageState extends State<ChatsPage> {
   }
 
   Widget _chatsList() {
+    List<Chat>? _chats = _pageProvider.chats;
+
     return Expanded(
-      child: _chatTile(),
+      child: (() {
+        if (_chats != null) {
+          if (_chats.length != 0) {
+            return ListView.builder(
+              itemCount: _chats.length,
+              itemBuilder: (BuildContext _context, int _index) {
+                return _chatTile(
+                  _chats[_index],
+                );
+              },
+            );
+          } else {
+            return Center(
+              child: Text(
+                "No Chats Found.",
+                style: TextStyle(color: Colors.white),
+              ),
+            );
+          }
+        } else {
+          return Center(
+            child: CircularProgressIndicator(
+              color: Colors.white,
+            ),
+          );
+        }
+      })(),
     );
   }
 
-  Widget _chatTile() {
+  Widget _chatTile(Chat _chat) {
+    List<ChatUser> _recepients = _chat.recepients();
+    bool _isActive = _recepients.any((_d) => _d.wasRecentlyActive());
+    String _subtitleText = "";
+    if (_chat.messages.isNotEmpty) {
+      _subtitleText = _chat.messages.first.type != MessageType.TEXT
+          ? "Media Attachment"
+          : _chat.messages.first.content;
+    }
     return CustomListViewTileWithActivity(
-        height: _deviceHeight * 0.10,
-        title: "Neymar",
-        subtitle: "Hello!",
-        imagePath:
-            "https://imageio.forbes.com/specials-images/imageserve/627bd53a3a4d3cd7729717cc/0x0.jpg?format=jpg&crop=1069,1070,x707,y83,safe&height=416&width=416&fit=bounds",
-        isActive: true,
-        isActivity: false,
-        onTap: () {});
+      height: _deviceHeight * 0.10,
+      title: _chat.title(),
+      subtitle: _subtitleText,
+      imagePath: _chat.imageURL(),
+      isActive: _isActive,
+      isActivity: _chat.activity,
+      onTap: () {},
+    );
   }
 }
