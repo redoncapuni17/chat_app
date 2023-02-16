@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _loginForm() {
     return Container(
-      height: _deviceHeight * 0.18,
+      height: _deviceHeight * 0.20,
       child: Form(
         key: _loginFormKey,
         child: Column(
