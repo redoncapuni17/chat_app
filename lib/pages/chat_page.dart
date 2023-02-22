@@ -201,7 +201,7 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   Widget _sendMessageButton() {
-    double _size = _deviceHeight * 0.057;
+    double _size = _deviceHeight * 0.045;
     return Container(
       height: _size,
       width: _size,

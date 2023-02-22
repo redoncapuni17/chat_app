@@ -52,22 +52,23 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+//Adding Search Bar Field
     return TextField(
       controller: controller,
       onEditingComplete: () => onEditingComplete(controller.value.text),
-      cursorColor: Colors.white,
-      style: TextStyle(color: Colors.white),
+      cursorColor: Colors.black,
+      style: TextStyle(color: Colors.black),
       obscureText: obscureText,
       decoration: InputDecoration(
-        fillColor: Color.fromRGBO(30, 29, 37, 1.0),
+        fillColor: Color.fromARGB(255, 176, 174, 185),
         filled: true,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(20.0),
           borderSide: BorderSide.none,
         ),
         hintText: hintText,
-        hintStyle: TextStyle(color: Colors.white54),
-        prefixIcon: Icon(icon, color: Colors.white54),
+        hintStyle: TextStyle(color: Colors.black),
+        prefixIcon: Icon(icon, color: Colors.black),
       ),
     );
   }

@@ -33,7 +33,7 @@ class DatabaseService {
     return _db.collection(USER_COLLECTION).doc(_uid).get();
   }
 
-/*
+//Retrieving Users From Cloud Firestore.
   Future<QuerySnapshot> getUsers({String? name}) {
     Query _query = _db.collection(USER_COLLECTION);
     if (name != null) {
@@ -43,7 +43,6 @@ class DatabaseService {
     }
     return _query.get();
   }
-*/
 
   Stream<QuerySnapshot> getChatsForUser(String _uid) {
     return _db
@@ -112,7 +111,7 @@ class DatabaseService {
     }
   }
 
-/*
+//Create Chat In Cloud Firestore.
   Future<DocumentReference?> createChat(Map<String, dynamic> _data) async {
     try {
       DocumentReference _chat =
@@ -121,5 +120,5 @@ class DatabaseService {
     } catch (e) {
       print(e);
     }
-  }*/
+  }
 }
