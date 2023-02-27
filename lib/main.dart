@@ -40,6 +40,7 @@ class MainApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Chat App',
         theme: ThemeData(
           backgroundColor: Color.fromRGBO(36, 35, 49, 1.0),

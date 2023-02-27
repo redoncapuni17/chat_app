@@ -43,6 +43,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _buildUI() {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         padding: EdgeInsets.symmetric(
           horizontal: _deviceWidth * 0.03,
@@ -65,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             _loginButton(),
             SizedBox(
-              height: _deviceHeight * 0.02,
+              height: _deviceHeight * 0.05,
             ),
             _registerAccountLink(),
           ],
@@ -76,13 +77,20 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _pageTitle() {
     return Container(
-      height: _deviceHeight * 0.10,
+      height: _deviceHeight * 0.12,
       child: Text(
         'Chat App',
         style: TextStyle(
-          color: Colors.white,
           fontSize: 40,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.bold,
+          foreground: Paint()
+            ..shader = LinearGradient(colors: [
+              Colors.pinkAccent,
+              Colors.deepPurpleAccent,
+              Colors.red
+            ]).createShader(
+              Rect.fromLTWH(0.0, 0.0, 200.0, 100.0),
+            ),
         ),
       ),
     );
@@ -90,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _loginForm() {
     return Container(
-      height: _deviceHeight * 0.20,
+      height: _deviceHeight * 0.234,
       child: Form(
         key: _loginFormKey,
         child: Column(
@@ -106,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 regEx:
                     r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
-                hintText: "Email",
+                hintText: "E-mail",
                 obscureText: false),
             CustomTextFormField(
                 onSaved: (_value) {
@@ -126,7 +134,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget _loginButton() {
     return RoundedButton(
       name: "Login",
-      height: _deviceHeight * 0.065,
+      height: _deviceHeight * 0.069,
       width: _deviceWidth * 0.65,
       onPressed: () {
         if (_loginFormKey.currentState!.validate()) {
@@ -138,15 +146,12 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _registerAccountLink() {
-    return GestureDetector(
-      onTap: () => _navigation.navigateToRoute('/register'),
-      child: Container(
-        child: Text(
-          'Don\'t have an account?',
-          style: TextStyle(
-            color: Colors.blueAccent,
-          ),
-        ),
+    return Container(
+      child: ElevatedButton(
+        onPressed: () => _navigation.navigateToRoute('/register'),
+        child: Text("Create New Account"),
+        style: ElevatedButton.styleFrom(
+            shadowColor: Colors.greenAccent, elevation: 5),
       ),
     );
   }

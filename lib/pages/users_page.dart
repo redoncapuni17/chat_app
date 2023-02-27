@@ -55,10 +55,10 @@ class _UsersPageState extends State<UsersPage> {
         return Container(
           padding: EdgeInsets.symmetric(
             horizontal: _deviceWidth * 0.03,
-            vertical: _deviceHeight * 0.02,
+            vertical: _deviceHeight * 0.03,
           ),
           height: _deviceHeight * 0.98,
-          width: _deviceWidth * 0.97,
+          width: _deviceWidth * 0.99,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,

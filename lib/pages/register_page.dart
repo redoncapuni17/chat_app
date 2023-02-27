@@ -1,5 +1,6 @@
 //Packages
 import 'package:chat_app/widgets/rounded_image.dart';
+import 'package:chat_app/widgets/top_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:get_it/get_it.dart';
@@ -18,6 +19,7 @@ import '../widgets/rounded_image.dart';
 
 //Providers
 import '../providers/authentication_provider.dart';
+import '../providers/chat_page_provider.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -68,6 +70,10 @@ class _RegisterPageState extends State<RegisterPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            _topbar(),
+            SizedBox(
+              height: _deviceHeight * 0.02,
+            ),
             _profileImageField(),
             SizedBox(
               height: _deviceHeight * 0.05,
@@ -83,6 +89,17 @@ class _RegisterPageState extends State<RegisterPage> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _topbar() {
+    return AppBar(
+      elevation: 400,
+      centerTitle: true,
+      shadowColor: Colors.greenAccent,
+      title: Text("Registration Page"),
+      toolbarHeight: 60,
+      backgroundColor: Color.fromRGBO(36, 35, 49, 1.0),
     );
   }
 
@@ -116,7 +133,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Widget _registerForm() {
     return Container(
-      height: _deviceHeight * 0.35,
+      height: _deviceHeight * 0.36,
       child: Form(
         key: _registerFromKey,
         child: Column(
